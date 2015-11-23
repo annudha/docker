@@ -95,14 +95,13 @@ nested properties, the tool itself needs to implement this functionality.
 To add labels to an image, use the `LABEL` instruction in your Dockerfile:
 
 
-    LABEL [<namespace>.]<key>[=<value>] ...
+    LABEL [<namespace>.]<key>=<value> ...
 
-The `LABEL` instruction adds a label to your image, optionally with a value.
-Use surrounding quotes or backslashes for labels that contain
-white space characters in the `<value>`:
+The `LABEL` instruction adds a label to your image. Use surrounding quotes 
+or backslashes for labels that contain white space characters in the `<value>`:
 
     LABEL vendor=ACME\ Incorporated
-    LABEL com.example.version.is-beta
+    LABEL com.example.version.is-beta=""
     LABEL com.example.version="0.0.1-beta"
     LABEL com.example.release-date="2015-02-12"
 
@@ -114,7 +113,7 @@ in a single instruction:
 Long lines can be split up by using a backslash (`\`) as continuation marker:
 
     LABEL vendor=ACME\ Incorporated \
-          com.example.is-beta \
+          com.example.is-beta="" \
           com.example.version="0.0.1-beta" \
           com.example.release-date="2015-02-12"
 
